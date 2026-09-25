@@ -15,4 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build using docker
-        run: echo "Build using docker"  
+        run: echo "Build using docker" 
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        run: echo "Testing the code"
+
+  deploy:
+    needs: [build,test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying the code
+        run: echo "deploy the code"
+    
